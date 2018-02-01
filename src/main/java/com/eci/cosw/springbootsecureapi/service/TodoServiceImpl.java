@@ -16,19 +16,20 @@ import org.springframework.stereotype.Service;
  * @author sergio
  */
 @Service
-public class TodoServiceImpl {
+public class TodoServiceImpl implements TodoService{
     
     private List<Todo> todo = new ArrayList<>();
     
     @Autowired
-    public TodoServiceImpl(){
-    }
+    public TodoServiceImpl(){ }
 
-    public List<Todo> getTodoList(){
+    @Override
+    public List<Todo> getTodoList() {
         return todo;
     }
-            
-    public Todo addTodo( Todo todo ){
+
+    @Override
+    public Todo addTodo(Todo todo) {
         this.todo.add(todo);
         return todo;
     }
