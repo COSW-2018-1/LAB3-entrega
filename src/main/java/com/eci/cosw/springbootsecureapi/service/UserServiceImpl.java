@@ -13,8 +13,7 @@ import java.util.List;
  * 8/21/17.
  */
 @Service
-public class UserServiceImpl
-    implements UserService
+public class UserServiceImpl implements UserService
 {
 
     private List<User> users = new ArrayList<>();
