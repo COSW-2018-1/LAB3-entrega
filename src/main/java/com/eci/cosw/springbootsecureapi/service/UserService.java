@@ -12,11 +12,13 @@ public interface UserService
 {
     List<User> getUsers();
 
-    User getUser( Long id );
+    User getUser( int id );
 
     User createUser( User user );
 
     User findUserByEmail( String email );
 
     User findUserByEmailAndPassword( String email, String password );
+    
+    Boolean registerUser( User user);
 }

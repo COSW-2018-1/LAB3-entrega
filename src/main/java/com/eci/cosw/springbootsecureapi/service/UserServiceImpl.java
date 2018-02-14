@@ -27,38 +27,57 @@ public class UserServiceImpl implements UserService
     @PostConstruct
     private void populateSampleData()
     {
-        users.add( new User( "test@mail.com", "password", "Andres", "Perez" ) );
+        users.add( new User( "test@mail.com", "password", "Andres", "Perez", "" ) );
     }
 
 
     @Override
     public List<User> getUsers()
-    {
+    {   
         return users;
     }
 
     @Override
-    public User getUser( Long id )
+    public User getUser( int id )
     {
-        return users.get( 0 );
+        /*for(int i=0;i<users.size();i++){
+            if(users.get(i).getId()==id) return users.get(i);
+        }*/
+        
+        return users.get(id);
     }
 
     @Override
     public User createUser( User user )
-    {
-        return users.get( 0 );
+    {    
+        for(int i=0;i<users.size();i++){
+            if(users.get(i).getId()==user.getId() || users.get(i).getEmail() == user.getEmail()) return null;
+        }
+        
+        user.setId(users.size());
+        users.add(user);
+        return users.get( users.size()-1 );
     }
 
     @Override
     public User findUserByEmail( String email )
     {
-        return users.get( 0 );
+        for(int i=0;i<users.size();i++){
+            if(users.get(i).getEmail()==email) return users.get(i);
+        }
+        
+        return null;
     }
 
     @Override
     public User findUserByEmailAndPassword( String email, String password )
     {
         return users.get( 0 );
+    }
+
+    @Override
+    public Boolean registerUser(User user) {        
+        return createUser(user)!=null;
     }
 
 }

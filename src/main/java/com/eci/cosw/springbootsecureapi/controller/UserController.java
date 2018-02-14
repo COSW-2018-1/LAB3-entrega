@@ -5,6 +5,7 @@ import com.eci.cosw.springbootsecureapi.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,71 +16,66 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.ServletException;
 
 /**
- * @author Santiago Carrillo
- * 8/21/17.
+ * @author Santiago Carrillo 8/21/17.
  */
 @RestController
-@RequestMapping( "user" )
-public class UserController
-{
+@RequestMapping("user")
+public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping( value = "/login", method = RequestMethod.POST )
-    public Token login( @RequestBody User login )
-        throws ServletException
-    {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Token login(@RequestBody User login) throws ServletException {
 
         String jwtToken;
 
-        if ( login.getUsername() == null || login.getPassword() == null )
-        {
-            throw new ServletException( "Please fill in username and password" );
+        if (login.getUsername() == null || login.getPassword() == null) {
+            throw new ServletException("Please fill in username and password");
         }
 
         String username = login.getUsername();
         String password = login.getPassword();
 
-        User user = userService.getUser( 0l );
+        
+        User user = userService.getUser(0);
 
-        if ( user == null )
-        {
-            throw new ServletException( "User username not found." );
+        if (user == null) {
+            throw new ServletException("User username not found.");
         }
 
         String pwd = user.getPassword();
 
-        if ( !password.equals( pwd ) )
-        {
-            throw new ServletException( "Invalid login. Please check your name and password." );
+        if (!password.equals(pwd)) {
+            throw new ServletException("Invalid login. Please check your name and password.");
         }
 
-        jwtToken = Jwts.builder().setSubject( username ).claim( "roles", "user" ).setIssuedAt( new Date() ).signWith(
-            SignatureAlgorithm.HS256, "secretkey" ).compact();
+        jwtToken = Jwts.builder().setSubject(username).claim("roles", "user").setIssuedAt(new Date()).signWith(
+                SignatureAlgorithm.HS256, "secretkey").compact();
 
-        return new Token( jwtToken );
+        return new Token(jwtToken);
     }
 
-    public class Token
-    {
+    @RequestMapping(value = "/items", method = RequestMethod.GET)
+    public List<User> getUsers(){
+        
+        return userService.getUsers();
+        
+    }
+
+    public class Token {
 
         String access_token;
 
-
-        public Token( String access_token )
-        {
+        public Token(String access_token) {
             this.access_token = access_token;
         }
 
-
-        public String getAccessToken()
-        {
+        public String getAccessToken() {
             return access_token;
         }
 
-        public void setAccessToken( String access_token )
-        {
+        public void setAccessToken(String access_token) {
             this.access_token = access_token;
         }
     }

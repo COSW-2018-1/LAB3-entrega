@@ -7,7 +7,7 @@ package com.eci.cosw.springbootsecureapi.model;
 public class User
 {
 
-    private long id;
+    private int id;
 
     private String email;
 
@@ -18,18 +18,21 @@ public class User
     private String lastname;
 
     private String username;
+    
+    private String image;
 
 
     public User()
     {
     }
 
-    public User( String email, String password, String firstname, String lastname )
+    public User( String email, String password, String firstname, String lastname, String image )
     {
         this.email = email;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.image = image;
     }
 
 
@@ -38,7 +41,7 @@ public class User
         return id;
     }
 
-    public void setId( long id )
+    public void setId( int id )
     {
         this.id = id;
     }
@@ -93,6 +96,15 @@ public class User
         this.username = username;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+        
     @Override
     public String toString()
     {
