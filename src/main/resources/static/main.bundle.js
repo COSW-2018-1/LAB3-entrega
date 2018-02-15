@@ -1123,23 +1123,23 @@ var UserService = (function (_super) {
         _this.config = config;
         _this.authService = authService;
         _this.http = http;
-        _this.resourceUrl = 'user/user';
+        _this.resourceUrl = 'user/';
         return _this;
     }
     UserService.prototype.create = function (name, lastname, image, email, password) {
         return this.post(this.resourceUrl, new __WEBPACK_IMPORTED_MODULE_5__models_user__["a" /* User */](name, lastname, image, email, password));
     };
     UserService.prototype.list = function () {
-        return this.get(this.resourceUrl);
+        return this.get(this.resourceUrl + 'traerUsers');
     };
     UserService.prototype.busqueda = function (email) {
-        return this.post('user/busqueda', email);
+        return this.post(this.resourceUrl + 'busqueda', email);
     };
     UserService.prototype.login = function (name, password) {
         var _this = this;
         console.log(name);
         console.log(password);
-        return this.post('user/login', { name: name, password: password }, { credentials: false }).map(function (loginResponse) {
+        return this.post(this.resourceUrl + 'login', { name: name, password: password }, { credentials: false }).map(function (loginResponse) {
             if (loginResponse) {
                 _this.authService.accessToken = loginResponse.accessToken;
             }

@@ -46,11 +46,6 @@ public class UserController {
 
         String pwd = user.getPassword();
 
-        System.out.println("===== 000 data");
-        System.out.println(username);
-        System.out.println(password);
-        System.out.println(user.getName());
-        System.out.println(user.getPassword());
         
         if (!password.equals(pwd)) {
             throw new ServletException("Invalid login. Please check your name and password.");
@@ -62,8 +57,8 @@ public class UserController {
         return new Token(jwtToken);
     }
 
-    @RequestMapping(value = "/items", method = RequestMethod.GET)
-    public List<User> getUsers(){
+    @RequestMapping(value = "/traerUsers", method = RequestMethod.GET)
+    public List<User> traerUsers(){
         
         return userService.getUserList();
         

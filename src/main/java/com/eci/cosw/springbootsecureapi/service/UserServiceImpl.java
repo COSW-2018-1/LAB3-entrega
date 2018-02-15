@@ -22,13 +22,12 @@ public class UserServiceImpl implements UserService
     @Autowired
     public UserServiceImpl()
     {
-        populateSampleData();
+        
     }
 
     @PostConstruct
     private void populateSampleData()
     {
-        System.out.println("===================   PUPULATE SAMPLE DATA");
         users.add( new User( "xyz", "xyz", "", "test@test.com", "password" ) );
         users.add( new User( "123", "123", "", "test@test.com", "123" ) );
     }
