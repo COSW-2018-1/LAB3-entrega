@@ -30,11 +30,11 @@ public class UserController {
 
         String jwtToken;
 
-        if (login.getUsername() == null || login.getPassword() == null) {
+        if (login.getName()== null || login.getPassword() == null) {
             throw new ServletException("Please fill in username and password");
         }
 
-        String username = login.getUsername();
+        String username = login.getName();
         String password = login.getPassword();
 
         
@@ -49,7 +49,7 @@ public class UserController {
         System.out.println("===== 000 data");
         System.out.println(username);
         System.out.println(password);
-        System.out.println(user.getUsername());
+        System.out.println(user.getName());
         System.out.println(user.getPassword());
         
         if (!password.equals(pwd)) {

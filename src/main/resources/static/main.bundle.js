@@ -1135,11 +1135,11 @@ var UserService = (function (_super) {
     UserService.prototype.busqueda = function (email) {
         return this.post('user/busqueda', email);
     };
-    UserService.prototype.login = function (username, password) {
+    UserService.prototype.login = function (name, password) {
         var _this = this;
-        console.log(username);
+        console.log(name);
         console.log(password);
-        return this.post('user/login', { username: username, password: password }, { credentials: false }).map(function (loginResponse) {
+        return this.post('user/login', { name: name, password: password }, { credentials: false }).map(function (loginResponse) {
             if (loginResponse) {
                 _this.authService.accessToken = loginResponse.accessToken;
             }

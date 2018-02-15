@@ -1,99 +1,55 @@
 package com.eci.cosw.springbootsecureapi.model;
 
 /**
- * @author Santiago Carrillo
- * 8/21/17.
+ * @author Santiago Carrillo 8/21/17.
  */
-public class User
-{
+public class User {
 
     private int id;
+
+    private String name;
+
+    private String lastname;
+
+    private String image;
 
     private String email;
 
     private String password;
 
-    private String firstname;
-
-    private String lastname;
-
-    private String username;
-    
-    private String image;
-
-
-    public User()
-    {
+    public User() {
     }
 
-    public User( String email, String password, String firstname, String lastname, String image )
-    {
-        this.email = email;
-        this.password = password;
-        this.firstname = firstname;
+    public User(String name, String lastname, String image, String email, String password) {
+        this.name = name;
         this.lastname = lastname;
         this.image = image;
+        this.email = email;
+        this.password = password;
     }
 
-
-    public long getId()
-    {
+    public int getId() {
         return id;
     }
 
-    public void setId( int id )
-    {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getEmail()
-    {
-        return email;
+    public String getName() {
+        return name;
     }
 
-    public void setEmail( String email )
-    {
-        this.email = email;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPassword()
-    {
-        return password;
-    }
-
-    public void setPassword( String password )
-    {
-        this.password = password;
-    }
-
-    public String getFirstname()
-    {
-        return firstname;
-    }
-
-    public void setFirstname( String firstname )
-    {
-        this.firstname = firstname;
-    }
-
-    public String getLastname()
-    {
+    public String getLastname() {
         return lastname;
     }
 
-    public void setLastname( String lastname )
-    {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public String getUsername()
-    {
-        return username;
-    }
-
-    public void setUsername( String username )
-    {
-        this.username = username;
     }
 
     public String getImage() {
@@ -104,11 +60,25 @@ public class User
         this.image = image;
     }
 
-        
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "User{" + "id=" + id + ", email='" + email + '\'' + ", password='" + password + '\'' + ", firstname='"
-            + firstname + '\'' + '}';
+                + name + '\'' + '}';
     }
 }
