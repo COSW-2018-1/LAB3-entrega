@@ -10,11 +10,11 @@ import java.util.List;
  */
 public interface UserService
 {
-    List<User> getUsers();
+    List<User> getUserList();
 
     User getUser( int id );
 
-    User createUser( User user );
+    User addUser( User user );
 
     User findUserByEmail( String email );
 

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author sergio
  */
 @RestController
-@RequestMapping( "api" )
+@RequestMapping("api")
 public class TodoController {
     
     @Autowired

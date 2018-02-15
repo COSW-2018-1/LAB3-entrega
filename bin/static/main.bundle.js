@@ -1123,7 +1123,7 @@ var UserService = (function (_super) {
         _this.config = config;
         _this.authService = authService;
         _this.http = http;
-        _this.resourceUrl = 'user/user';
+        _this.resourceUrl = 'api/user';
         return _this;
     }
     UserService.prototype.create = function (name, lastname, image, email, password) {
@@ -1137,9 +1137,7 @@ var UserService = (function (_super) {
     };
     UserService.prototype.login = function (username, password) {
         var _this = this;
-        console.log(username);
-        console.log(password);
-        return this.post('user/login', { username: username, password: password }, { credentials: false }).map(function (loginResponse) {
+        return this.post('api/login', { username: username, password: password }, { credentials: false }).map(function (loginResponse) {
             if (loginResponse) {
                 _this.authService.accessToken = loginResponse.accessToken;
             }

@@ -46,6 +46,12 @@ public class UserController {
 
         String pwd = user.getPassword();
 
+        System.out.println("===== 000 data");
+        System.out.println(username);
+        System.out.println(password);
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
+        
         if (!password.equals(pwd)) {
             throw new ServletException("Invalid login. Please check your name and password.");
         }
@@ -59,7 +65,7 @@ public class UserController {
     @RequestMapping(value = "/items", method = RequestMethod.GET)
     public List<User> getUsers(){
         
-        return userService.getUsers();
+        return userService.getUserList();
         
     }
 
@@ -78,6 +84,19 @@ public class UserController {
         public void setAccessToken(String access_token) {
             this.access_token = access_token;
         }
+    }
+    
+     @RequestMapping( value = "/busqueda", method = RequestMethod.POST )
+    public User traerUserCorreo( @RequestBody String email ) throws ServletException {
+        
+        if(email.isEmpty()){
+            throw new ServletException( "Please fill email ..." );
+        }
+        else{
+            userService.findUserByEmail(email);
+        }        
+            
+        return null;
     }
 
 }
