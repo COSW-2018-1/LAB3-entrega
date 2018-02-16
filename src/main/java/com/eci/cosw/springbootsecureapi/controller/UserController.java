@@ -30,15 +30,15 @@ public class UserController {
 
         String jwtToken;
 
-        if (login.getName()== null || login.getPassword() == null) {
+        if (login.getEmail()== null || login.getPassword() == null) {
             throw new ServletException("Please fill in username and password");
         }
 
-        String username = login.getName();
+        String username = login.getEmail();
         String password = login.getPassword();
 
         
-        User user = userService.getUser(0);
+        User user = userService.findUserByEmailAndPassword(username, password);
 
         if (user == null) {
             throw new ServletException("User username not found.");

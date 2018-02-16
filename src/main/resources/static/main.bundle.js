@@ -952,7 +952,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/user-list-page/user-list-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Usuarios Registrados</h2>\r\n\r\n<table class=\"table table-bordered\">\r\n <thead>\r\n   <tr>\r\n     <th>Name</th>\r\n     <th>Lastname</th>\r\n\t <th>Image</th>\r\n\t <th>Email</th>\r\n   </tr>\r\n </thead>\r\n <tr *ngFor=\"let user of users\">\r\n   <td>{{user.name}}</td>\r\n   <td>{{user.lastname}}</td>\r\n   <td>IMAGEN EN BLANCO</td>\r\n   <td>{{user.email}}</td>\r\n </tr>\r\n</table>\r\n\r\n\r\n<!--img src=\"\" width=\"150\" height=\"150\" -->"
+module.exports = "<h2>Usuarios Registrados</h2>\r\n\r\n<table class=\"table table-bordered\">\r\n <thead>\r\n   <tr>\r\n     <th>Name</th>\r\n     <th>Lastname</th>\r\n\t <th>Image</th>\r\n\t <th>Email</th>\r\n   </tr>\r\n </thead>\r\n <tr *ngFor=\"let user of users\">\r\n   <td>{{user.name}}</td>\r\n   <td>{{user.lastname}}</td>\r\n   <td>\r\n\t   <img [src]=\"user.image\" width='150' height='150' >\r\n   </td>\r\n   <td>{{user.email}}</td>\r\n </tr>\r\n</table>\r\n\r\n\r\n<!--img src=\"\" width='150' height='150' -->"
 
 /***/ }),
 
@@ -1135,11 +1135,9 @@ var UserService = (function (_super) {
     UserService.prototype.busqueda = function (email) {
         return this.post(this.resourceUrl + 'busqueda', email);
     };
-    UserService.prototype.login = function (name, password) {
+    UserService.prototype.login = function (email, password) {
         var _this = this;
-        console.log(name);
-        console.log(password);
-        return this.post(this.resourceUrl + 'login', { name: name, password: password }, { credentials: false }).map(function (loginResponse) {
+        return this.post(this.resourceUrl + 'login', { email: email, password: password }, { credentials: false }).map(function (loginResponse) {
             if (loginResponse) {
                 _this.authService.accessToken = loginResponse.accessToken;
             }

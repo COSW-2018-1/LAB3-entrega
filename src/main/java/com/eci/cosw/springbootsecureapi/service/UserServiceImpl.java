@@ -28,8 +28,15 @@ public class UserServiceImpl implements UserService
     @PostConstruct
     private void populateSampleData()
     {
-        users.add( new User( "xyz", "xyz", "", "test@test.com", "password" ) );
-        users.add( new User( "123", "123", "", "test@test.com", "123" ) );
+        User usuario1 = new User( "nombre 1", "xyz", "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png", "xyz", "password" );
+        User usuario2 = new User( "nombre 2", "123", "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png", "user@user.com", "123" );
+
+        String pr = "\"dtfyguhjiokp vfygbhunjimk\"";
+        
+        
+        
+        addUser(usuario1);
+        addUser(usuario2);
     }
 
 
@@ -51,8 +58,17 @@ public class UserServiceImpl implements UserService
 
     @Override
     public User addUser( User user )
-    {            
-        user.setId(users.size());
+    {           
+        
+        String u_image = user.getImage(); // IMAGEN USER
+        String d_image = "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png"; // LINK DEFAULT        
+        if("".equals(u_image)){
+            user.setImage(d_image);
+        }
+        else{
+            user.setImage(u_image);
+        }
+        user.setId(users.size());        
         users.add(user);
         return users.get( users.size()-1 );
     }
@@ -61,7 +77,7 @@ public class UserServiceImpl implements UserService
     public User findUserByEmail( String email )
     {
         for(int i=0;i<users.size();i++){
-            if(users.get(i).getEmail()==email) {
+            if(email.equals(users.get(i).getEmail())) {
                 User retUser = users.get(i);
                 retUser.setPassword("****"); //para que en la pantalla se vean 'punticos'
                 return retUser;
@@ -73,8 +89,16 @@ public class UserServiceImpl implements UserService
 
     @Override
     public User findUserByEmailAndPassword( String email, String password )
-    {
-        return users.get( 0 );
+    {        
+       for(int i=0;i<users.size();i++){          
+            if(email.equals(users.get(i).getEmail()) && password.equals(users.get(i).getPassword())) {
+                User retUser = users.get(i);
+                //retUser.setPassword("****"); //para que no retorne el password
+                return retUser;
+            }
+        }
+        
+        return null;
     }
 
     @Override
