@@ -31,10 +31,6 @@ public class UserServiceImpl implements UserService
         User usuario1 = new User( "nombre 1", "xyz", "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png", "xyz", "password" );
         User usuario2 = new User( "nombre 2", "123", "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png", "user@user.com", "123" );
 
-        String pr = "\"dtfyguhjiokp vfygbhunjimk\"";
-        
-        
-        
         addUser(usuario1);
         addUser(usuario2);
     }
