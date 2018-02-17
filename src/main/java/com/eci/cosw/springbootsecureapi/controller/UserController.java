@@ -30,14 +30,13 @@ public class UserController {
 
         String jwtToken;
 
-        if (login.getEmail()== null || login.getPassword() == null) {
+        if (login.getEmail() == null || login.getPassword() == null) {
             throw new ServletException("Please fill in username and password");
         }
 
         String username = login.getEmail();
         String password = login.getPassword();
 
-        
         User user = userService.findUserByEmailAndPassword(username, password);
 
         if (user == null) {
@@ -46,7 +45,6 @@ public class UserController {
 
         String pwd = user.getPassword();
 
-        
         if (!password.equals(pwd)) {
             throw new ServletException("Invalid login. Please check your name and password.");
         }
@@ -55,13 +53,6 @@ public class UserController {
                 SignatureAlgorithm.HS256, "secretkey").compact();
 
         return new Token(jwtToken);
-    }
-
-    @RequestMapping(value = "/traerUsers", method = RequestMethod.GET)
-    public List<User> traerUsers(){
-        
-        return userService.getUserList();
-        
     }
 
     public class Token {
@@ -80,17 +71,41 @@ public class UserController {
             this.access_token = access_token;
         }
     }
-    
-     @RequestMapping( value = "/busqueda", method = RequestMethod.POST )
-    public User traerUserCorreo( @RequestBody String email ) throws ServletException {
+
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    public Boolean agregarUsuario(@RequestBody User adduser) throws ServletException {
+       
+        if (adduser.getName()==null || adduser.getLastname()==null || adduser.getEmail()==null || adduser.getPassword()==null) {
+        //if ("".equals(name) || "".equals(lastname) || "".equals(email) || "".equals(password)) {
+            throw new ServletException("Please fill all fiels ...");
+        } 
+        //User adduser = new User(name, lastname, image, email, password);
+        Boolean result = userService.registerUser(adduser);
         
-        if(email.isEmpty()){
-            throw new ServletException( "Please fill email ..." );
-        }
-        else{
+        if (!result) {
+            throw new ServletException("~A unknow error has occurred~ ...");
+        } 
+        
+        return true;
+         
+    }
+
+    @RequestMapping(value = "/listUsers", method = RequestMethod.GET)
+    public List<User> traerUsers() {
+
+        return userService.getUserList();
+
+    }
+
+    @RequestMapping(value = "/searchEmailUser", method = RequestMethod.POST)
+    public User traerUserCorreo(@RequestBody String email) throws ServletException {
+
+        if (email.isEmpty()) {
+            throw new ServletException("Please fill email ...");
+        } else {
             userService.findUserByEmail(email);
-        }        
-            
+        }
+
         return null;
     }
 

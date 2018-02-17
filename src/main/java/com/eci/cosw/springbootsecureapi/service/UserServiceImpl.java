@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService
     private void populateSampleData()
     {
         User usuario1 = new User( "nombre 1", "xyz", "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png", "xyz", "password" );
-        User usuario2 = new User( "nombre 2", "123", "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png", "user@user.com", "123" );
+        User usuario2 = new User( "nombre 2", "123", "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png", "root", "root" );
 
         addUser(usuario1);
         addUser(usuario2);
@@ -66,6 +66,7 @@ public class UserServiceImpl implements UserService
         }
         user.setId(users.size());        
         users.add(user);
+        
         return users.get( users.size()-1 );
     }
 
