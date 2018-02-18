@@ -39,8 +39,11 @@ public class UserController {
 
         User user = userService.findUserByEmailAndPassword(username, password);
 
+        System.out.println("CONTROLLER");
+        System.out.println(user.getEmail());
+        System.out.println(user.getPassword());
         if (user == null) {
-            throw new ServletException("User username not found.");
+            throw new ServletException("Username not found.");
         }
 
         String pwd = user.getPassword();
@@ -74,20 +77,23 @@ public class UserController {
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public Boolean agregarUsuario(@RequestBody User adduser) throws ServletException {
-       
-        if (adduser.getName()==null || adduser.getLastname()==null || adduser.getEmail()==null || adduser.getPassword()==null) {
-        //if ("".equals(name) || "".equals(lastname) || "".equals(email) || "".equals(password)) {
+
+        if (adduser.getName() == null || adduser.getLastname() == null || adduser.getEmail() == null || adduser.getPassword() == null) {
             throw new ServletException("Please fill all fiels ...");
-        } 
-        //User adduser = new User(name, lastname, image, email, password);
-        Boolean result = userService.registerUser(adduser);
+        }
+
+        if(userService.findUserByEmail(adduser.getEmail())!=null){
+            throw new ServletException("Ya existe un usuario con el mismo correo ...");
+        }
         
+        Boolean result = userService.registerUser(adduser);
+
         if (!result) {
             throw new ServletException("~A unknow error has occurred~ ...");
-        } 
-        
+        }
+
         return true;
-         
+
     }
 
     @RequestMapping(value = "/listUsers", method = RequestMethod.GET)
@@ -102,11 +108,15 @@ public class UserController {
 
         if (email.isEmpty()) {
             throw new ServletException("Please fill email ...");
-        } else {
-            userService.findUserByEmail(email);
         }
-
-        return null;
+       
+        User encontrado= userService.findUserByEmail(email);
+        
+        if(encontrado==null) {
+            throw new ServletException("No user found with the email address");
+        }        
+        
+        return encontrado;
     }
 
 }

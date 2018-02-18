@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Progress Bar -->\n<div class=\"progress\">\n\t\t<div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n\t\t aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n\t</div>\n\n<nav class=\"navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse\">\n\n\t<button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\n\t aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n\t\t<span class=\"navbar-toggler-icon\"></span>\n\t</button>\n\n\t<a class=\"navbar-brand\" href=\"#\">COSW Angular4</a>\n\t<div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n\t\t<ul class=\"navbar-nav mr-auto\">\n\t\t\t<li *ngIf=\"!isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLinkActive=\"/\" routerLink=\"/\">Home</a>\n\t\t\t</li>\n\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLinkActive=\"/tasks\" routerLink=\"/tasks\">Tasks</a>\n\t\t\t</li>\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLinkActive=\"/edit\" routerLink=\"/edit\">Add Task</a>\n\t\t\t</li>\n\t\t\t\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLinkActive=\"/userlist\" routerLink=\"/userlist\">Users</a>\n\t\t\t</li>\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLinkActive=\"/useredit\" routerLink=\"/useredit\">Add User</a>\n\t\t\t</li>\n\n\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a href=\"#\" class=\"nav-link\" (click)=\"signOut()\">(Sign Out)</a>\n\t\t\t</li>\t\t\t\n\t\t</ul>\n\n\t\t<!-- Search -->\n\t\t<form class=\"form-inline\">\n\t\t\t<input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">\n\t\t\t<button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\" data-toggle=\"modal\" data-target=\"#modal-search\">Search</button>\n\t\t</form>\n\t</div>\n</nav>\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"modal-search\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n\t<div class=\"modal-dialog\" role=\"document\">\n\t\t<div class=\"modal-content\">\n\t\t\t<div class=\"modal-header\">\n\t\t\t\t<h5 class=\"modal-title\" id=\"exampleModalLabel\">Modal title</h5>\n\t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n\t\t\t\t\t<span aria-hidden=\"true\">&times;</span>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t<div class=\"modal-body\">\n\t\t\t\tThis feature is not implemented yet. Sorry for the inconvenience.\n\t\t\t</div>\n\t\t\t<div class=\"modal-footer\">\n\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n\t\t\t\t<button type=\"button\" class=\"btn btn-primary\">OK!</button>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n\n\n<div class=\"container\">\n\t<router-outlet></router-outlet>\n</div>"
+module.exports = "<!-- Componentx Progress Bar -->\n<div class=\"progress\">\n\t<div class=\"progress-bar progress-bar-striped progress-bar-animated\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n\t aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n</div>\n\n<nav class=\"navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse\">\n\n\t<button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\n\t aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n\t\t<span class=\"navbar-toggler-icon\"></span>\n\t</button>\n\n\t<a class=\"navbar-brand\" href=\"#\">COSW Angular4</a>\n\t<div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n\t\t<ul class=\"navbar-nav mr-auto\">\n\t\t\t<li *ngIf=\"!isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLinkActive=\"/\" routerLink=\"/\">Home</a>\n\t\t\t</li>\n\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLinkActive=\"/tasks\" routerLink=\"/tasks\">Tasks</a>\n\t\t\t</li>\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLinkActive=\"/edit\" routerLink=\"/edit\">Add Task</a>\n\t\t\t</li>\n\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLinkActive=\"/userlist\" routerLink=\"/userlist\">Users</a>\n\t\t\t</li>\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLinkActive=\"/useredit\" routerLink=\"/useredit\">Add User</a>\n\t\t\t</li>\n\n\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a href=\"#\" class=\"nav-link\" (click)=\"signOut()\">(Sign Out)</a>\n\t\t\t</li>\n\t\t</ul>\n\n\t\t<!-- Componentx Search -->\n\t\t<form [formGroup]=\"searchForm\" (ngSubmit)=\"doSearch()\" novalidate>\n\t\t\t<div class=\"form-group\">\n\t\t\t\t\n\t\t\t\t\t<input type=\"text\" class=\"form-control mr-sm-2\" id=\"correo\"  placeholder=\"Busque por email\" formControlName=\"emailSerach\"\n\t\t\t\t\trequired >\n\n\t\t\t\t\t<button type=\"submit\" class=\"btn btn-success btn-outline-success my-2 my-sm-0\" data-toggle=\"modal\" data-target=\"#modal-search\">Buscar</button>\n\t\t\t\t\n\t\t\t</div>\n\t\t</form>\n\n\n\t</div>\n</nav>\n\n<!-- Componentx Modal -->\n<div class=\"modal fade\" id=\"modal-search\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n\t<div class=\"modal-dialog\" role=\"document\">\n\t\t<div class=\"modal-content\">\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"modal-header\">\n\n\t\t\t\t\t<h5 class=\"modal-title\" id=\"exampleModalLabel\">Resultados de la busqueda:</h5>\n\n\n\t\t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n\t\t\t\t\t\t<span aria-hidden=\"true\">&times;</span>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal-body\">\n\t\t\t\tThis feature is not implemented yet. Sorry for the inconvenience\n\n\t\t\t\t<table class=\"table table-bordered\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t  <tr>\n\t\t\t\t\t\t\t<th>Name</th>\n\t\t\t\t\t\t\t<th>Lastname</th>\n\t\t\t\t\t\t\t<th>Image</th>\n\t\t\t\t\t\t\t<th>Email</th>\n\t\t\t\t\t\t  </tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t  <td>{{ruser.name}}</td>\n\t\t\t\t\t\t  <td>{{ruser.lastname}}</td>\n\t\t\t\t\t\t  <td>\n\t\t\t\t\t\t\t  <img [src]=\"ruser.image\" width='150' height='150' >\n\t\t\t\t\t\t  </td>\n\t\t\t\t\t\t  <td>{{ruser.email}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t   </table>\n\t\t\t\t\t   \n\t\t\t\t<p class=\"text-danger mt-1\" *ngIf=\"notFound\">{{notFound}}</p>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal-footer\">\n\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n\t\t\t\t<!-- button type=\"button\" class=\"btn btn-primary\">OK!</button -->\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n\n\n<div class=\"container\">\n\t<router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -45,6 +45,8 @@ module.exports = "<!-- Progress Bar -->\n<div class=\"progress\">\n\t\t<div clas
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -58,10 +60,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var AppComponent = (function () {
-    function AppComponent(authService, router) {
+    function AppComponent(authService, router, userService, formBuilder) {
         this.authService = authService;
         this.router = router;
+        this.userService = userService;
+        this.formBuilder = formBuilder;
         this.title = 'app';
         if (!this.authService.isLoggedIn()) {
             this.router.navigate(['/']);
@@ -73,6 +79,19 @@ var AppComponent = (function () {
     AppComponent.prototype.signOut = function () {
         this.authService.signOut();
     };
+    AppComponent.prototype.ngOnInit = function () {
+        this.searchForm = this.formBuilder.group({
+            emailSerach: ''
+        });
+    };
+    AppComponent.prototype.doSearch = function () {
+        var _this = this;
+        this.userService.busquedaPorEmail(this.searchForm.get('emailSerach').value).subscribe(function (userResponse) {
+            _this.ruser = userResponse;
+        }, function (error) {
+            _this.notFound = 'Error Busqueda: ' + (error && error.message ? error.message : '');
+        });
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -81,10 +100,10 @@ AppComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__common_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__common_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__common_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__common_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_user_service__["a" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* FormBuilder */]) === "function" && _d || Object])
 ], AppComponent);
 
-var _a, _b;
+var _a, _b, _c, _d;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -862,7 +881,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/user-edit-page/user-edit-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n\t\t<h2>Edit User</h2>\r\n\t\t<form [formGroup]=\"userForm\" (ngSubmit)=\"onSubmit()\" novalidate>\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label for=\"name\">Nombre</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"alname\" formControlName=\"name\" required>\r\n\t\t\t</div>\r\n\t\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label for=\"lastname\">Apellido</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"allastname\" formControlName=\"lastname\" required>\r\n\t\t\t</div>\r\n\t\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label for=\"image\">URL imagen</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"alimage\" formControlName=\"image\">\r\n\t\t\t</div>\r\n\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label for=\"email\">email</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"alemail\" formControlName=\"email\" required>\r\n\t\t\t</div>\r\n\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label for=\"password\">password</label>\r\n\t\t\t\t<input type=\"password\" class=\"form-control\" id=\"alpassword\" formControlName=\"password\">\r\n\t\t\t</div>\r\n\t\r\n\t\t\t<button type=\"submit\" class=\"btn btn-success btn btn-secondary\" data-placement=\"left\" title=\"Tooltip on left\">Save</button>\r\n\t\r\n\t\t</form>\r\n\t</div>\r\n\r\n\r\n\t<!--button type=\"button\" class=\"btn btn-lg btn-danger\" data-toggle=\"popover\" title=\"Popover title\" data-content=\"And here's some amazing content. It's very engaging. Right?\">Click to toggle popover</button-->"
+module.exports = "<div class=\"container\">\r\n\t\t<h2>Edit User</h2>\r\n\t\t<form [formGroup]=\"userForm\" (ngSubmit)=\"onSubmit()\" novalidate>\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label for=\"name\">Nombre</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"alname\" formControlName=\"name\" required>\r\n\t\t\t</div>\r\n\t\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label for=\"lastname\">Apellido</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"allastname\" formControlName=\"lastname\" required>\r\n\t\t\t</div>\r\n\t\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label for=\"image\">URL imagen</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"alimage\" formControlName=\"image\">\r\n\t\t\t</div>\r\n\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label for=\"email\">email</label>\r\n\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"alemail\" formControlName=\"email\" required>\r\n\t\t\t</div>\r\n\r\n\t\t\t<div class=\"form-group\">\r\n\t\t\t\t<label for=\"password\">password</label>\r\n\t\t\t\t<input type=\"password\" class=\"form-control\" id=\"alpassword\" formControlName=\"password\" required>\r\n\t\t\t</div>\r\n\t\t\t\r\n\t\t\t<!-- Componentx Tooltips -->\r\n\t\t\t<button type=\"submit\" class=\"btn btn-success btn btn-secondary\" data-placement=\"Click acá para guardar los datos.\" title=\"Tooltip on left\">Save</button>\r\n\t\r\n\t\t</form>\r\n\t</div>\r\n\r\n\r\n\t<!--button type=\"button\" class=\"btn btn-lg btn-danger\" data-toggle=\"popover\" title=\"Popover title\" data-content=\"And here's some amazing content. It's very engaging. Right?\">Click to toggle popover</button-->"
 
 /***/ }),
 
