@@ -39,12 +39,6 @@ public class UserController {
 
         User user = userService.findUserByEmailAndPassword(username, password);
 
-        System.out.println("CONTROLLER LOG");
-        System.out.println(login.getEmail());
-        System.out.println(login.getPassword());
-        System.out.println("CONTROLLER USE");
-        System.out.println(user.getEmail());
-        System.out.println(user.getPassword());
         if (user == null) {
             throw new ServletException("Username not found.");
         }
@@ -109,15 +103,13 @@ public class UserController {
     @RequestMapping(value = "/searchEmailUser", method = RequestMethod.POST)
     public User traerUserCorreo(@RequestBody User findUser) throws ServletException {
 
-        System.out.println("===========  SEARCH CONTROLLER");
-        System.out.println(findUser);
+        
         if (findUser==null) {
             throw new ServletException("Please fill email ...");
         }
        
         String email = findUser.getEmail();
-        System.out.println("======== XXXXXX ======");
-        System.out.println(email);
+        
         User encontrado= userService.findUserByEmail(email);
         
         if(encontrado==null) {
