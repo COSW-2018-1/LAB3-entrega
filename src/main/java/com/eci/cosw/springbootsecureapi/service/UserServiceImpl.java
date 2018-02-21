@@ -27,9 +27,7 @@ public class UserServiceImpl implements UserService
 
     @PostConstruct
     private void populateSampleData()
-    {
-        System.out.println("POPULATE SAMPLE DATA");
-        
+    {                
         User usuario1 = new User( "nombre 1", "xyz", "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png", "xyz", "password" );
         User usuario2 = new User( "nombre 2", "123", "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png", "root", "root" );
 
@@ -40,25 +38,19 @@ public class UserServiceImpl implements UserService
 
     @Override
     public List<User> getUserList()
-    {   
-        System.out.println("GET USER LIST");
-        
+    {           
         return users;
     }
 
     @Override
     public User getUser( int id )
     {
-        System.out.println("GETUSER");
-        
         return users.get(id);
     }
 
     @Override
     public User addUser( User user )
     {           
-        System.out.println("ADDUSER");
-        
         String u_image = user.getImage(); // IMAGEN USER
         String d_image = "http://scriptmode.com/videostreamingtutorial/img/overview/user-management.png"; // LINK DEFAULT        
         if("".equals(u_image)){
@@ -76,19 +68,11 @@ public class UserServiceImpl implements UserService
     @Override
     public User findUserByEmail( String email )
     {
-        System.out.println("====== FIND BY EMAIL");
-        System.out.println(users.size());
-        System.out.println(email);
-        
         for(int i=0;i<users.size();i++){
-            System.out.println("====== For i - "+ i);
-            
-            System.out.println(users.get(i));
-            
-            if(email.equals(users.get(i).getEmail())) {
-                System.out.println(true);
+
+            if(email.equals(users.get(i).getEmail())) {   
+                System.out.println("============= TRUE");
                 return users.get(i);
-                
             }
         }
         
@@ -98,12 +82,7 @@ public class UserServiceImpl implements UserService
     @Override
     public User findUserByEmailAndPassword( String email, String password )
     {       
-        System.out.println("FIND BY EMAIL PASSWORD");
-        System.out.println(users.size());   
         
-        System.out.println("CONTROLLER FIND");
-        System.out.println(email);
-        System.out.println(password);
        for(int i=0;i<users.size();i++){          
             if(email.equals(users.get(i).getEmail()) && password.equals(users.get(i).getPassword())) {
                 return users.get(i);
@@ -114,8 +93,7 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public Boolean registerUser(User user) { 
-        System.out.println("REGISTRER");
+    public Boolean registerUser(User user) {        
         return addUser(user)!=null;
     }
 
