@@ -87,9 +87,8 @@ public class UserServiceImpl implements UserService
             
             if(email.equals(users.get(i).getEmail())) {
                 System.out.println(true);
-                User retUser = users.get(i);
-                retUser.setPassword("****"); //para que en la pantalla se vean 'punticos'
-                return retUser;
+                return users.get(i);
+                
             }
         }
         
